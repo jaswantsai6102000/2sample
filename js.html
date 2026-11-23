@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive HTML5 Webpage</title>
+  <style>
+    /* CSS Variables for Light & Dark Mode */
+    :root {
+      --bg-color: #fafafa;
+      --text-color: #333333;
+      --card-bg: #ffffff;
+      --border-color: #dddddd;
+      --header-bg: #007BFF;
+      --nav-bg: #222222;
+      --table-header: #f4f4f4;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e4e4e4;
+      --card-bg: #1e1e1e;
+      --border-color: #333333;
+      --header-bg: #0056b3;
+      --nav-bg: #000000;
+      --table-header: #2a2a2a;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 20px;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .theme-btn {
+      background: #444;
+      color: #fff;
+      border: 1px solid #666;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .theme-btn:hover {
+      background: #555;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 25px;
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    /* Search Input Styling */
+    .search-box {
+      width: 100%;
+      max-width: 350px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--table-header);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 500px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      font-size: 14px;
+    }
+
+    button[type="submit"] {
+      padding: 12px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button[type="submit"]:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--nav-bg);
+      color: #aaa;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar with Dark Mode Toggle -->
+  <nav>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#schedule">Topics</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+  </nav>
+
+  <!-- Hero Header -->
+  <header>
+    <h1>Interactive HTML5 Webpage</h1>
+    <p>Featuring a JavaScript dark mode toggle and real-time table search.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>How It Works</h2>
+      <p>This page uses <strong>CSS Custom Properties (Variables)</strong> paired with vanilla JavaScript to switch themes smoothly, and an <code>input</code> event listener to filter table rows in real time.</p>
+    </section>
+
+    <!-- Interactive Table Section -->
+    <section id="schedule">
+      <h2>Web Development Topics</h2>
+      <input type="text" id="searchInput" class="search-box" placeholder="Search topics, tech, or difficulty...">
+      
+      <table id="topicsTable">
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Technology</th>
+            <th>Difficulty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Page Structure</td>
+            <td>HTML5</td>
+            <td>Beginner</td>
+          </tr>
+          <tr>
+            <td>Responsive Grid & Flexbox</td>
+            <td>CSS3</td>
+            <td>Intermediate</td>
+          </tr>
+          <tr>
+            <td>DOM Manipulation</td>
+            <td>JavaScript</td>
+            <td>Intermediate</td>
+          </tr>
+          <tr>
+            <td>API Fetching & Async</td>
+            <td>JavaScript</td>
+            <td>Advanced</td>
+          </tr>
+          <tr>
+            <td>CSS Variables & Themes</td>
+            <td>CSS3</td>
+            <td>Beginner</td>
+          </tr>
+        </tbody>
+      </table>
+      <p id="noResults" style="display: none; color: #888; margin-top: 10px;">No matching topics found.</p>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <p id="formFeedback" style="color: #28a745; font-weight: bold; display: none;"></p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Interactive Webpage. Built with HTML, CSS & JS.</p>
+  </footer>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // 1. Dark Mode Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      themeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+
+    // 2. Live Table Search Filter
+    const searchInput = document.getElementById('searchInput');
+    const tableRows = document.querySelectorAll('#topicsTable tbody tr');
+    const noResults = document.getElementById('noResults');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      let visibleCount = 0;
+
+      tableRows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        if (rowText.includes(query)) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+
+    // 3. Form Submission Feedback (No Alert Popup)
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      formFeedback.textContent = `Thanks, ${name}! Your message has been received.`;
+      formFeedback.style.display = 'block';
+      contactForm.reset();
+    });
+  </script>
+
+</body>
+</html>
